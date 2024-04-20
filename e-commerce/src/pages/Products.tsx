@@ -1,5 +1,7 @@
 import Breadcrum from "@/components/breadcrum/Breadcrum";
+import DescriptionBox from "@/components/descrptionbox/DescriptionBox";
 import ProductDisplay from "@/components/productdisplay/ProductDisplay";
+import RelatedProducts from "@/components/relatedproducts/RelatedProducts";
 import { ShopContext } from "@/context/Shopcontext"
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
@@ -20,6 +22,9 @@ const Products:React.FC = () => {
     <div>
       { Product && < Breadcrum Product = {Product}/>}
       { Product && <ProductDisplay Product = {Product}/>}
+      { Product && <DescriptionBox />}
+      { Product && <RelatedProducts />}
+
     </div>
   )
 }

@@ -12,7 +12,7 @@ interface Props{
 const Items = (props:Props) => {
   return (
     <div className='items' >
-     <Link to={ `/Product/${props.id}`}> <img src={props.image} alt="" /> </Link>
+     <Link to={ `/Product/${props.id}`}> <img onClick={window.scrollTo(0,0)} src={props.image} alt="" /> </Link>
       <p>{props.name}</p>
       <div className='item-prices flex gap-20'>
       <div className='new_price text-gray-700 font-normal '>
