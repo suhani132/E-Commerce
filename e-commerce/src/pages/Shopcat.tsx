@@ -1,8 +1,8 @@
-import React from 'react';
-import { ShopContext } from '@/context/Shopcontext';
-import { useContext } from 'react';
-import dropdown_icon from '@/assets/dropdown_icon.png';
-import Items from '@/components/items/Items';
+import React from "react";
+import { ShopContext } from "@/context/Shopcontext";
+import { useContext } from "react";
+import dropdown_icon from "@/assets/dropdown_icon.png";
+import Items from "@/components/items/Items";
 
 export interface IShopcatProps {
   banner: string;
@@ -22,18 +22,19 @@ const Shopcat: React.FC<IShopcatProps> = (props) => {
   const { all_product } = useContext(ShopContext);
 
   return (
-    <div className="container">
+    <div className="container flex flex-col justify-center items-center mx-auto  ">
       <img src={props.banner} alt="" />
-      <div className="shopcat-indexsort flex items-center justify-between text-lg my-10">
+      <div className="flex justify-between text-lg ">
         <p>
           <span className="font-semibold">Showing 1-12</span> out of 36 products
         </p>
-        <div className="shopcat-sort flex items-center justify-center cursor-pointer px-1 border-b-2 rounded-2xl border-gray-400 bg-slate-200">
-          <p>  Sort by </p>
-          <img src={dropdown_icon} alt="" />
+        <div className="flex flex-row">
+          <p className="w-fit cursor-pointer p-2 border-b-2 rounded-2xl border-gray-400 bg-slate-200">Sort by<img src={dropdown_icon} alt="" />
+          </p>
+          
         </div>
       </div>
-      <div className="shopcat-products mt-3 gap-4 grid  grid-cols-4">
+      <div className="shopcat-products gap-4 grid  grid-cols-2 md:grid-cols-4">
         {all_product.map((item: IProduct, index: number) => {
           if (props.category === item.category) {
             return (
@@ -51,8 +52,11 @@ const Shopcat: React.FC<IShopcatProps> = (props) => {
           }
         })}
       </div>
-      <div className="flex  items-center justify-center mt-10">
-        <p className="border-b-2 rounded-2xl border-gray-400  bg-slate-200 px-2 cursor-pointer"> Explore More </p>
+      <div className="flex">
+        <p className="border-b-2 rounded-2xl border-gray-400 w-fit bg-slate-200 p-2 cursor-pointer">
+          {" "}
+          Explore More{" "}
+        </p>
       </div>
     </div>
   );

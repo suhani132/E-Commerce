@@ -12,9 +12,9 @@ interface ItemProps {
 
 const RelatedProducts: React.FC = () => {
   return (
-    <div className='RelatedProduct container flex flex-col items-center'>
+    <div className='RelatedProduct container flex flex-col gap-5 items-center justify-center'>
       <h1 className='border-b-2 border-gray-600 text-3xl font-semibold'>Related Products</h1>
-      <div className='RelatedProduct-item flex my-10 gap-4'>
+      <div className='RelatedProduct-item grid grid-cols-2 gap-5 md:grid-cols-4'>
            {data_product.map((item: ItemProps, index: number)=>{
               return <Items key={index} id={item.id} name={item.name} new_price={item.new_price} old_price={item.old_price} image={item.image}/>
      })}

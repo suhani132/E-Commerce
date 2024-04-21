@@ -13,7 +13,8 @@ import kid_banner from "@/assets/banner_kids.png";
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
+    
       <BrowserRouter> 
       <Navbar/>
       <Routes>
@@ -28,7 +29,6 @@ export default function Home() {
        <Route path="/Login" element={<Login/>}/>
       </Routes>
       <Footer/>
-
       </BrowserRouter>
      
       

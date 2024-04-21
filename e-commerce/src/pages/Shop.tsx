@@ -6,7 +6,7 @@ import Newsletter from "@/components/newsletter/Newsletter";
 
 const Shop = () => {
   return (
-    <div className="container mx-auto flex justify-center items-center md:flex-col">
+    <div className="container mx-auto flex justify-center items-center flex-col">
       <Hero/>
       <Popular/>
       <Offers/>

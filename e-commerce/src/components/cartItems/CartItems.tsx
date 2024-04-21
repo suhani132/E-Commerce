@@ -10,10 +10,10 @@ interface E {
 }
 
 const CartItems = () => {
-  const { all_product, cartItems, removeFromCart } = useContext(ShopContext);
+  const { getTotalCartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
   return (
-    <div className="cartitems container">
-      <div className="cartitems-format-main grid  grid-cols-6 border-2 items-center font-semibold gap-2 text-gray-700  ">
+    <div className="cartitems container justify-center items-center mx-auto">
+      <div className=" grid  grid-cols-6 border-2 font-semibold gap-1 text-gray-700  ">
         <p >Products</p>
         <p >Title</p>
         <p >Price</p>
@@ -25,8 +25,8 @@ const CartItems = () => {
         if (cartItems[e.id] > 0) {
           return (
             <div>
-              <div className="cart-items-format grid  grid-cols-6 border-2 items-center font-normal text-base gap-2 text-gray-700">
-                <img className="h-24" src={e.image} alt="" />
+              <div className="cart-items-format grid  grid-cols-6 border-2  font-normal text-base text-gray-700">
+                <img className="h-20" src={e.image} alt="" />
                 <p>{e.name}</p>
                 <p>${e.new_price}</p>
                 <button className="Quantity border-2 border-gray-200 px-2  w-fit">{cartItems[e.id]}</button>
@@ -44,26 +44,26 @@ const CartItems = () => {
         }
         return null;
       })}
-      <div className="cartitems-down my-10 flex justify-between">
-        <div className="cartitems-total w-1/2">
-            <h1 className="font-semibold text-2xl my-5">Cart Totals</h1>
+      <div className="cartitems-down my-10 flex flex-col md:flex-row justify-between gap-5 ">
+        <div className="cartitems-total w-full flex flex-col gap-5 justify-between">
+            <h1 className="font-semibold text-2xl ">Cart Totals</h1>
             <div>
-                <div className="cartitems-total-items justify-between flex border-b-2 border-gray-400  py-2">
+                <div className="cartitems-total-items flex justify-between border-b-2 border-gray-400  py-2">
                     <p>Subtotal</p>
-                    <p>${0}</p>
+                    <p>${getTotalCartAmount()}</p>
                 </div>
-                <div className="cartitems-total-items justify-between flex border-b-2 border-gray-400  py-2 ">
+                <div className="cartitems-total-items flex justify-between border-b-2 border-gray-400  py-2 ">
                     <p>Shipping Fee</p>
                     <p>Free</p>
                 </div>
-                <div className="cartitems-total-items justify-between flex border-b-2 border-gray-400 font-semibold font py-2 ">
+                <div className="cartitems-total-items flex justify-between border-b-2 border-gray-400 font-semibold py-2 ">
                     <h3>Total</h3>
-                    <h3>${0}</h3>
+                    <h3>${getTotalCartAmount()}</h3>
                 </div>
             </div>
-            <button className="cartitems-checkout border-2 bg-red-600 text-white w-fit py-2 px-2 mt-5">Proceed to Checkout</button>
+            <button className="cartitems-checkout border-2 bg-red-600 text-white w-fit p-2">Proceed to Checkout</button>
         </div>
-        <div className="cartitems-promocode my-10">
+        <div className="cartitems-promocode w-full ">
             <p className="text-gray-500 ">If you have a promo code, Enter it here</p>
             <div className="promo-box ">
                 <input className="border-2 bg-slate-200  px-2 py-2" type="text" placeholder="Enter Promo Code" />

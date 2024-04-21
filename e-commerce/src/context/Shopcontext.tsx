@@ -7,6 +7,8 @@ interface IShopContext {
   setCartItems: React.Dispatch<React.SetStateAction<{ [index: number]: number }>>;
   addToCart: (itemid: number) => void;
   removeFromCart: (itemid: number) => void;
+  getTotalCartAmount:()=>number;
+  getTotalItems: () => number;
 }
 
 export const ShopContext = createContext<IShopContext>({
@@ -15,6 +17,8 @@ export const ShopContext = createContext<IShopContext>({
   setCartItems: () => {},
   addToCart: () => {},
   removeFromCart: () => {},
+  getTotalCartAmount:()=>0,
+  getTotalItems: () => 0,
 });
 
 const ShopContextProvider = ({ children }: PropsWithChildren<{}>) => {
@@ -35,7 +39,30 @@ const ShopContextProvider = ({ children }: PropsWithChildren<{}>) => {
   const removeFromCart = (itemid: number) => {
     setCartItems((prev) => ({ ...prev, [itemid]: prev[itemid] - 1 }));
   };
-  const contextValue = { all_product, cartItems, setCartItems, addToCart, removeFromCart };
+  const getTotalCartAmount =(): number=>{
+    let TotalAmount=0;
+    for(const item in cartItems)
+      {
+        if(cartItems[item]>0)
+          {
+          let itemInfo = all_product.find((product)=>product.id===Number(item));
+            TotalAmount+=itemInfo.new_price*cartItems[item];
+          }
+         
+        }
+        return TotalAmount;
+      };
+      const getTotalItem =(): number=>{
+        let TotalItem = 0;
+        for(const item in cartItems){
+          if(cartItems[item]>0)
+            {
+              TotalItem += cartItems[item];
+            }
+        }
+        return TotalItem;
+      }
+  const contextValue: IShopContext = {  getTotalItem, getTotalCartAmount, all_product, cartItems, setCartItems, addToCart, removeFromCart };
   return (
     <ShopContext.Provider value={contextValue}>
       {children}

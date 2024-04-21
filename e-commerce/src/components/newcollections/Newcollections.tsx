@@ -12,9 +12,9 @@ interface ItemProps {
 
 const Newcollections: React.FC = () => {
   return (
-    <div className='container items-center mt-10 bg-pink-50'>
-      <h1 className="text-gray-900 text-2xl font-semibold mt-5">NEW COLLECTIONS</h1>
-      <div className='popular_item mt-3 gap-4 grid  grid-cols-4 '>
+    <div className='container  flex flex-col  my-5 items-center justify-center mx-auto bg-pink-50'>
+      <h1 className="text-gray-900 text-2xl font-semibold ">NEW COLLECTIONS</h1>
+      <div className='popular_item grid  grid-cols-2 md:grid-cols-4 gap-x-5'>
         {new_collections.map((item: ItemProps, index: number) => (
             <Items key={index} id={item.id} name={item.name} new_price={item.new_price} old_price={item.old_price} image={item.image}/>
         ))}

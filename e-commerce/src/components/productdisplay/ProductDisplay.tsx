@@ -16,8 +16,8 @@ interface props {
 const ProductDisplay: React.FC<props> =({Product}) => {
   const {addToCart} = useContext(ShopContext)
   return (
-    <div className="container flex">
-      <div className="ProductDisplay-left flex gap-5 h-full w-1/2">
+    <div className="container flex items-center justify-center mx-auto gap-5">
+      <div className="ProductDisplay-left flex gap-5 h-full w-1/4 md:w-1/2">
         <div className="ProductDisplay-img h-full w-28 gap-3">
           <img src={Product.image} alt="" />
           <img src={Product.image} alt="" />
@@ -28,7 +28,7 @@ const ProductDisplay: React.FC<props> =({Product}) => {
           <img src={Product.image} alt="" />
         </div>
       </div>
-      <div className="ProductDisplay-right flex flex-col h-full w-auto ">
+      <div className="ProductDisplay-right flex flex-col h-full w-1/4 md:w-1/2 ">
         <h1 className="text-2xl font-medium text-gray-800">{Product.name}</h1>
         <div className="star flex items-center gap-4 my-3">
           <img src={star_icon} alt="" />
@@ -42,7 +42,7 @@ const ProductDisplay: React.FC<props> =({Product}) => {
           <div className="old_price text-gray-500 line-through"> ${Product.old_price}</div>
           <div className="new_price text-red-700">${Product.new_price} </div>
         </div>
-        <div className="descp">
+        <div className="">
           A lightweight, usually knitted, pullover shirt, close-fitting with a
           round neckline and short sleeves, worn as a undershirt or an outer
           garment.

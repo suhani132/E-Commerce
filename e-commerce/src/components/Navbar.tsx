@@ -1,32 +1,57 @@
-// import React from 'react'
-import logo from "@/assets/logo.png"
-import cart_icon from '@/assets/cart_icon.png'
+import logo from "@/assets/logo.png";
+import cart_icon from "@/assets/cart_icon.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ShopContext } from "@/context/Shopcontext";
 
 const Navbar = () => {
-   
+  const { getTotalItem } = useContext(ShopContext);
   return (
-    <div className='container mx-15 '>
-      <div className=" flex justify-between items-center gap-2 ">
-        <div className='flex items-center gap-4'>
-        <img src={logo} alt="logo" />
-            <p className='font-semibold text-4xl text-gray-900'>STYLEIN</p>
-        </div>
-        <ul className='flex text-base items-center gap-8 font-medium text-gray-700 list-none cursor-pointer'>
-            <li className=' hover:border-b-2  hover:border-red-500 '> <Link to='/'> Shop </Link>  </li>
-            <li className=' hover:border-b-2  hover:border-red-500'> <Link to='/Mens'> Mens </Link>  </li>
-            <li className=' hover:border-b-2  hover:border-red-500'> <Link to='/Womens'>  Womens </Link> </li>
-            <li className=' hover:border-b-2  hover:border-red-500'> <Link to='/Kids'> Kids </Link>   </li>
-        </ul>
-      <div className='flex  items-center justify-center'>
-        <button className='text-sm border-2 font-base bg-slate-50 border-gray-500 rounded-xl mr-10 mt-1 px-4 hover:border-red-500 hover:text-red-500 '><Link to="/Login">Login</Link></button>
-        <div> <Link to='/Cart'> <img  className='w-10 h-10 mt-1 cursor-pointer' src={cart_icon} alt="Cart icon" /> </Link> </div>
-        
-        <div className="inline-flex justify-center items-center text-white font-bold text-xs border-b rounded-full bg-red-500 px-2 py-1 mt-[-30px] ml-[-5px] "> 0</div>
+    <div className="container mx-auto flex justify-between  py-6 items-center ">
+     <div className="flex-col md:flex md:flex-row md:items-center "> <p className="font-semibold text-4xl text-gray-900 flex items-center gap-4">
+      <img src={logo} alt="logo" />
+        STYLEIN
+      </p>
+      <ul className="flex flex-row gap-4 md:gap-16 md:mx-16 md:pl-4">
+        <li className=" hover:border-b-2  hover:border-red-500 ">
+          {" "}
+          <Link to="/"> Shop </Link>{" "}
+        </li>
+        <li className=" hover:border-b-2  hover:border-red-500">
+          {" "}
+          <Link to="/Mens"> Mens </Link>{" "}
+        </li>
+        <li className=" hover:border-b-2  hover:border-red-500">
+          {" "}
+          <Link to="/Womens"> Womens </Link>{" "}
+        </li>
+        <li className=" hover:border-b-2  hover:border-red-500">
+          {" "}
+          <Link to="/Kids"> Kids </Link>{" "}
+        </li>
+      </ul>
+      </div>
+      <div className="flex flex-row  justify-between gap-x-10">
+      <button className=" flex  items-center  border-4 border-slate-400 rounded-2xl p-2  font-semibold hover:border-red-500 hover:text-red-500">
+        <Link to="/Login">Login</Link>
+      </button>{" "}
+      <div className="flex flex-row shrink-0">
+      <Link to="/Cart">
+        {" "}
+        <img
+          className="w-10 h-10 mt-1 cursor-pointer"
+          src={cart_icon}
+          alt="Cart icon"
+        />{" "}
+      </Link>{" "}
+      <div className=" justify-center items-center text-white font-bold text-sm  rounded-full bg-red-500 mb-6 py-0.5 px-2">
+        {" "}
+        {getTotalItem()}
+      </div>
       </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
