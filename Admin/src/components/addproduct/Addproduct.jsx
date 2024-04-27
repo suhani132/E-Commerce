@@ -57,14 +57,14 @@ const Addproduct = () => {
       <p>Product Title</p>
       <input value={productDetails.name} onChange={changeHandler} type="text" name='name' placeholder=' Type Here' className='border-2 border-gray-500 w-full' />
       </div>
-      <div className='addproduct-price flex flex-row '>
+      <div className='addproduct-price flex flex-row space-x-2'>
         <div className='addproduct-itemfield space-y-2 w-1/2'>
             <p>Price</p>
-            <input value={productDetails.old_price} onChange={changeHandler} type="text" name='old_price' placeholder=' Type Here'className='border-2 border-gray-500 '  />
+            <input value={productDetails.old_price} onChange={changeHandler} type="text" name='old_price' placeholder=' Type Here'className='border-2 border-gray-500 w-full '  />
         </div>
         <div className='addproduct-itemfield  space-y-2 w-1/2'>
             <p>Offer Price</p>
-            <input value={productDetails.new_price} onChange={changeHandler} type="text" name='new_price' placeholder=' Type Here'className='border-2 border-gray-500'  />
+            <input value={productDetails.new_price} onChange={changeHandler} type="text" name='new_price' placeholder=' Type Here'className='border-2 border-gray-500 w-full'  />
         </div>
       </div>
       <div className='addproduct-itemfield  space-y-2'>

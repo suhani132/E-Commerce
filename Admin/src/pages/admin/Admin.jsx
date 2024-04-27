@@ -6,7 +6,7 @@ import Listproduct from '../../components/listproduct/Listproduct';
 
 const Admin = () => {
   return (
-    <div className='Admin container mx-auto items-end flex'>
+    <div className='Admin container mx-auto flex'>
         <Sidebar/>
         <Routes>
           <Route path='/addproduct' element={<Addproduct/>}/>

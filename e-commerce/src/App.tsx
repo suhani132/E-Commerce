@@ -3,12 +3,13 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Shop from "./pages/Shop";
 import Shopcat from "./pages/Shopcat";
 import Products from "./pages/Products";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Footer from "@/components/footer/Footer";
 import men_banner from "@/assets/banner_mens.png";
 import women_banner from "@/assets/banner_women.png";
 import kid_banner from "@/assets/banner_kids.png";
+import LoginSignup from "./pages/LoginSignup";
 
 
 export default function Home() {
@@ -26,7 +27,7 @@ export default function Home() {
         <Route path=":ProductId" element={<Products/>} />
        </Route>
        <Route path="/Cart" element={<Cart/>}/>
-       <Route path="/Login" element={<Login/>}/>
+       <Route path="/Login" element={<LoginSignup/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

@@ -12,7 +12,9 @@ const { error } = require("console");
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://suhani132:suhani13022004@cluster0.szhyqju.mongodb.net/E-Commerce");
+mongoose.connect("mongodb+srv://suhani132:suhani13022004@cluster0.szhyqju.mongodb.net/E-Commerce").then(()=>{
+    console.log("Connected to MongoDB");
+});
 
 
 app.get("/",(req,res)=>{
@@ -196,6 +198,13 @@ app.post('/login',async (req,res)=>{
     else{
         res.json({success:false,errors:"Wrong email.id"})
     }
+})
+
+app.get('/newcollections',async(req,res)=>{
+ let products = await Product.find({});
+ let newcollection = products.slice(1).slice(-8);
+ console.log("new collections fetched");
+ res.send(newcollection)
 })
 
 app.listen(port,(error)=>{
