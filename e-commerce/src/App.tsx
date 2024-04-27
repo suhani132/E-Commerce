@@ -13,7 +13,7 @@ import kid_banner from "@/assets/banner_kids.png";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="">
     
       <BrowserRouter> 
       <Navbar/>

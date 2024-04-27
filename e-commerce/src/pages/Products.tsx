@@ -19,7 +19,7 @@ const Products:React.FC = () => {
 
   const Product = all_product.find((e) => e.id === Number(ProductId));
   return (
-    <div>
+    <div className=" flex flex-col min-h-screen flex-1">
       { Product && < Breadcrum Product = {Product}/>}
       { Product && <ProductDisplay Product = {Product}/>}
       { Product && <DescriptionBox />}

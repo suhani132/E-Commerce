@@ -39,6 +39,7 @@ export default function SignUp() {
     });
   };
 
+  const [state, setState] = React.useState("Login");
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -55,7 +56,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            {state}
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -114,7 +115,7 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              {state}
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
