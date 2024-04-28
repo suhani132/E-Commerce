@@ -25,13 +25,13 @@ const CartItems = () => {
         if (cartItems[e.id] > 0) {
           return (
             <div>
-              <div className="cart-items-format grid  grid-cols-6 border-2  font-normal text-base text-gray-700">
+              <div className="cart-items-format grid  grid-cols-6 border-2  font-normal text-base text-gray-700 h-fit gap-5 space-y-4">
                 <img className="h-20" src={e.image} alt="" />
                 <p>{e.name}</p>
                 <p>${e.new_price}</p>
-                <button className="Quantity border-2 border-gray-200 px-2  w-fit">{cartItems[e.id]}</button>
+                <button className="Quantity border-2 border-gray-200 h-fit w-fit p-2 ">{cartItems[e.id]}</button>
                 <p>${e.new_price*cartItems[e.id]}</p>
-                <img className="cursor-pointer ml-4"
+                <img className="cursor-pointer "
                   src={remove_icon}
                    onClick={() => {
                     removeFromCart(e.id);

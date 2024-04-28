@@ -1,5 +1,6 @@
 import new_collections from "@/assets/new_collections";
 import Items from "../items/Items";
+import { useState } from "react";
 
 interface ItemProps {
     id: number;
@@ -9,6 +10,7 @@ interface ItemProps {
     image: string;
 }
 
+// const [new_collection, setNew_collection] = useState([]);
 
 const Newcollections: React.FC = () => {
   return (

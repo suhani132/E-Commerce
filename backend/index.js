@@ -41,7 +41,7 @@ app.post("/upload",upload.single('product'),(req,res)=>{
  })
 })
 
-//schems for creating products
+//schemas for creating products
 const Product = mongoose.model("Product",{
     id:{
         type: Number,

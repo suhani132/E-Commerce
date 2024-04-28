@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, useEffect, useState } from "react";
-// import all_product from "@/assets/all_product";
+import all_product from "@/assets/all_product";
 
 interface IShopContext {
   all_product: typeof all_product;
@@ -23,7 +23,7 @@ export const ShopContext = createContext<IShopContext>({
 
 const ShopContextProvider = ({ children }: PropsWithChildren<{}>) => {
 
-  const [all_product, setAll_product] = useState([]);
+  // const [all_product, setAll_product] = useState([]);
   const [cartItems, setCartItems] = useState(() => {
     const cart = {};
     for (let index = 0; index < all_product.length+1; index++) {
@@ -32,10 +32,10 @@ const ShopContextProvider = ({ children }: PropsWithChildren<{}>) => {
     return cart;
   });
 
-  useEffect(()=>{
-    fetch('http://localhost:4000/allproducts').then((response=>response.json()))
-    .then((data)=>setAll_product(data))
-  },[])
+  // useEffect(()=>{
+  //   fetch('http://localhost:4000/allproducts').then((response=>response.json()))
+  //   .then((data)=>setAll_product(data))
+  // },[])
    
   const addToCart = (itemid: number) => {
     setCartItems((prev) => ({ ...prev, [itemid]: prev[itemid] + 1 }));
